@@ -15,6 +15,11 @@
 		97FEF14E2BDE6D4400727E54 /* GramCrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF14D2BDE6D4400727E54 /* GramCrackerTests.swift */; };
 		97FEF1582BDE6D4400727E54 /* GramCrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF1572BDE6D4400727E54 /* GramCrackerUITests.swift */; };
 		97FEF15A2BDE6D4400727E54 /* GramCrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF1592BDE6D4400727E54 /* GramCrackerUITestsLaunchTests.swift */; };
+		97FEF1682BDE91AA00727E54 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF1672BDE91AA00727E54 /* WelcomeView.swift */; };
+		97FEF16B2BDE944600727E54 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF16A2BDE944600727E54 /* SignInView.swift */; };
+		97FEF16D2BDE94CF00727E54 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF16C2BDE94CF00727E54 /* HomeScreen.swift */; };
+		97FEF1712BDE96A800727E54 /* ImageUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF1702BDE96A800727E54 /* ImageUploadView.swift */; };
+		97FEF1732BDE972000727E54 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF1722BDE972000727E54 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,11 @@
 		97FEF1532BDE6D4400727E54 /* GramCrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GramCrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97FEF1572BDE6D4400727E54 /* GramCrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GramCrackerUITests.swift; sourceTree = "<group>"; };
 		97FEF1592BDE6D4400727E54 /* GramCrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GramCrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		97FEF1672BDE91AA00727E54 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		97FEF16A2BDE944600727E54 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		97FEF16C2BDE94CF00727E54 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		97FEF1702BDE96A800727E54 /* ImageUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadView.swift; sourceTree = "<group>"; };
+		97FEF1722BDE972000727E54 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +106,8 @@
 		97FEF1392BDE6D4200727E54 /* GramCracker */ = {
 			isa = PBXGroup;
 			children = (
+				97FEF1692BDE924300727E54 /* Utils */,
+				97FEF1662BDE919A00727E54 /* Views */,
 				97FEF13A2BDE6D4200727E54 /* GramCrackerApp.swift */,
 				97FEF13C2BDE6D4200727E54 /* ContentView.swift */,
 				97FEF13E2BDE6D4200727E54 /* Item.swift */,
@@ -128,6 +140,25 @@
 				97FEF1592BDE6D4400727E54 /* GramCrackerUITestsLaunchTests.swift */,
 			);
 			path = GramCrackerUITests;
+			sourceTree = "<group>";
+		};
+		97FEF1662BDE919A00727E54 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				97FEF1672BDE91AA00727E54 /* WelcomeView.swift */,
+				97FEF16A2BDE944600727E54 /* SignInView.swift */,
+				97FEF16C2BDE94CF00727E54 /* HomeScreen.swift */,
+				97FEF1702BDE96A800727E54 /* ImageUploadView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		97FEF1692BDE924300727E54 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				97FEF1722BDE972000727E54 /* ImagePicker.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +294,11 @@
 				97FEF13D2BDE6D4200727E54 /* ContentView.swift in Sources */,
 				97FEF13F2BDE6D4200727E54 /* Item.swift in Sources */,
 				97FEF13B2BDE6D4200727E54 /* GramCrackerApp.swift in Sources */,
+				97FEF16D2BDE94CF00727E54 /* HomeScreen.swift in Sources */,
+				97FEF1682BDE91AA00727E54 /* WelcomeView.swift in Sources */,
+				97FEF1732BDE972000727E54 /* ImagePicker.swift in Sources */,
+				97FEF1712BDE96A800727E54 /* ImageUploadView.swift in Sources */,
+				97FEF16B2BDE944600727E54 /* SignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
