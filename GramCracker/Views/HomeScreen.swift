@@ -1,8 +1,10 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    @State private var isShowingImageUpload = false
+
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 20) {
                 Button("Link Instagram Account") {
                     // Logic to link Instagram account
@@ -14,9 +16,7 @@ struct HomeScreen: View {
                 .cornerRadius(8)
 
                 Button("Upload Image for Analysis") {
-                    NavigationLink("Upload Image for Analysis", destination: ImageUploadView())
-
-                    // Logic to upload image
+                    isShowingImageUpload = true
                     print("Upload Image for Analysis tapped")
                 }
                 .padding()
@@ -24,9 +24,12 @@ struct HomeScreen: View {
                 .background(Color.green)
                 .cornerRadius(8)
             }
+            .padding()
             .navigationTitle("Home Screen")
             .navigationBarTitleDisplayMode(.inline)
-            .padding()
+            .navigationDestination(isPresented: $isShowingImageUpload) {
+                ImageUploadView()
+            }
         }
     }
 }
