@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct SignInView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var authenticationFailed: Bool = false
@@ -34,6 +35,15 @@ struct SignInView: View {
                         .foregroundColor(.red)
                 }
             }
+            .navigationBarBackButtonHidden(true)
+                        .navigationBarItems(leading: Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            HStack {
+                                Image(systemName: "arrow.left")
+                                Text("Back")
+                            }
+                        })
             .padding()
             .navigationDestination(isPresented: $isAuthenticated) {
                 HomeScreen()

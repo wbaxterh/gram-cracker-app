@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var isShowingImageUpload = false
 
     var body: some View {
@@ -24,6 +25,15 @@ struct HomeScreen: View {
                 .background(Color.green)
                 .cornerRadius(8)
             }
+            .navigationBarBackButtonHidden(true)
+                        .navigationBarItems(leading: Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            HStack {
+                                Image(systemName: "arrow.left")
+                                Text("Back")
+                            }
+                        })
             .padding()
             .navigationTitle("Home Screen")
             .navigationBarTitleDisplayMode(.inline)

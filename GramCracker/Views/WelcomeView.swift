@@ -5,6 +5,7 @@ struct WelcomeView: View {
 
     var body: some View {
         NavigationStack {
+            
             VStack(spacing: 20) {
                 Image("Logos")  // Ensure this matches the exact name in your asset catalog
                     .resizable()
@@ -34,7 +35,9 @@ struct WelcomeView: View {
                 .background(Color.gray)
                 .cornerRadius(10)
             }
+            
             .padding()
+           
             .navigationDestination(isPresented: $isShowingSignIn) {
                 SignInView()
             }

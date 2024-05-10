@@ -1,5 +1,16 @@
 import SwiftUI
 
+import Foundation
+
+struct ImageAnalysisResponse: Decodable {
+    var labels: [Label]
+    var caption: String
+
+    struct Label: Decodable {
+        var Name: String
+        var Confidence: Double
+    }
+}
 struct ImageUploadView: View {
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplaying = false
@@ -7,60 +18,81 @@ struct ImageUploadView: View {
     @State private var shouldUploadImage = false  // New state to track if the image should be uploaded
     @State private var showAlert = false
     @State private var alertMessage = ""
+    @State private var caption: String? = nil // Ensure this is an optional
+    @State private var navigateToCaptionView = false
+    @State private var selectedCaption: String?
+    @State private var showCaptionView = false
+
 
     
     var body: some View {
-        VStack {
-            if let selectedImage = selectedImage {
-                Image(uiImage: selectedImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 300, maxHeight: 300)
+        NavigationStack {
+            VStack {
+                if let selectedImage = selectedImage {
+                    Image(uiImage: selectedImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: 300, maxHeight: 300)
+                        .padding()
+                } else {
+                    Text("Select an image to analyze")
+                        .padding()
+                }
+                
+                Text(uploadMessage)
                     .padding()
-            } else {
-                Text("Select an image to analyze")
-                    .padding()
-            }
-            
-            Text(uploadMessage)
-                .padding()
-                .foregroundColor(Color.green)
-            
-            Button("Select Image") {
-                isImagePickerDisplaying = true
-            }
-            .padding()
-            .foregroundColor(.white)
-            .background(Color.blue)
-            .cornerRadius(8)
-            
-            if selectedImage != nil {
-                Button("Upload Image") {
-                    uploadImage()
+                    .foregroundColor(Color.green)
+                
+                Button("Select Image") {
+                    isImagePickerDisplaying = true
                 }
                 .padding()
                 .foregroundColor(.white)
-                .background(Color.green)
+                .background(Color.blue)
                 .cornerRadius(8)
+                
+                if selectedImage != nil {
+                    Button("Upload Image") {
+                        uploadImage()
+                    }
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.green)
+                    .cornerRadius(8)
+                }
+                LoggerView(message: "LoggerView test.")
+                
+                
+                }
+                    .sheet(isPresented: $isImagePickerDisplaying, onDismiss: checkImageSelection) {
+                        ImagePicker(selectedImage: $selectedImage, sourceType: .photoLibrary)
+                    }
+                    .navigationDestination(isPresented: $navigateToCaptionView) {
+                        // Assuming CaptionView exists and takes a 'caption' string
+                        if let caption = caption {
+                            CaptionView(caption: caption)
+                        } else {
+                            Text("No caption available")
+                        }
+                    }
+        }
+    }
+
+//            private func uploadImage() {
+//                // Simulate network response delay and process the response
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // Adjusted for example
+//                    self.caption = "Simulated caption from network response"
+//                    self.uploadMessage = "Upload successful!"
+//                    print("Caption set successfully: \(self.caption ?? "No Caption")")
+//                }
+//            }
+
+            func checkImageSelection() {
+                if selectedImage != nil {
+                    uploadMessage = "Tap 'Upload Image' to analyze the selected image."
+                }
             }
-        }
-        .sheet(isPresented: $isImagePickerDisplaying, onDismiss: checkImageSelection) {
-            ImagePicker(selectedImage: $selectedImage, sourceType: .photoLibrary)
-        }
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("Upload Response"),
-                message: Text(alertMessage),
-                dismissButton: .default(Text("Close"))
-            )
-        }
-    }
-    
-    func checkImageSelection() {
-        if selectedImage != nil {
-            uploadMessage = "Tap 'Upload Image' to analyze the selected image."
-        }
-    }
+
     
     private func uploadImage() {
         guard let selectedImage = selectedImage,
@@ -113,31 +145,26 @@ struct ImageUploadView: View {
         let task = URLSession.shared.uploadTask(with: request, from: body) { data, response, error in
             DispatchQueue.main.async {
                 if let error = error {
-                    uploadMessage = "Upload failed: \(error.localizedDescription)"
-                } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                    uploadMessage = "Upload successful!"
-                    if let responseData = data, let responseString = String(data: responseData, encoding: .utf8) {
-                        alertMessage = "Response Data: \(responseString)"
-                                        showAlert = true  // Show the alert when the data is received
-                    }
-                } else if let httpResponse = response as? HTTPURLResponse {
-                    uploadMessage = "Upload failed with unexpected response: \(httpResponse.statusCode)"
-                    // Log full response details
-                                let statusCode = httpResponse.statusCode
-                                let headers = httpResponse.allHeaderFields
-                                var responseDetails = "HTTP Status Code: \(statusCode)\nHeaders: \(headers)"
-                                
-                                // Convert Data to a readable String format if possible
-                                if let responseData = data, let responseString = String(data: responseData, encoding: .utf8) {
-                                    responseDetails += "\nResponse Body: \(responseString)"
+                                    self.uploadMessage = "Upload failed: \(error.localizedDescription)"
+                                } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                                    self.navigateToCaptionView = true  // Trigger navigation
+                                    self.uploadMessage = "Upload successful!"
+                                    if let responseData = data {
+                                                            let decoder = JSONDecoder()
+                                                            do {
+                                                                let analysisResponse = try decoder.decode(ImageAnalysisResponse.self, from: responseData)
+                                                                self.caption = analysisResponse.caption // Update caption to trigger navigation
+                                                                self.uploadMessage = "Upload successful!"
+                                                                print("Caption set successfully: \(self.caption ?? "No Caption")")
+                                                            } catch {
+                                                                self.uploadMessage = "Failed to decode the response"
+                                                                print("Decoding error: \(error.localizedDescription)")
+                                                            }
+                                                        }
+                                } else if let httpResponse = response as? HTTPURLResponse {
+                                    self.uploadMessage = "Upload failed with unexpected response: \(httpResponse.statusCode)"
                                 }
-                                
-                                // Update uploadMessage with the complete response details for debugging
-                                uploadMessage = "Upload failed with unexpected response: \(responseDetails)"
-                                
-                                // Optional: log to the console
-                                print("Complete HTTP Response: \(responseDetails)")
-                }
+                            
             }
         }
         
@@ -149,5 +176,15 @@ struct ImageUploadView: View {
 struct ImageUploadView_Previews: PreviewProvider {
     static var previews: some View {
         ImageUploadView()
+    }
+}
+struct LoggerView: View {
+    let message: String
+
+    var body: some View {
+        EmptyView()
+            .onAppear {
+                print(message)
+            }
     }
 }

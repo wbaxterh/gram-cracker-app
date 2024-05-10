@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		978505942BE55DFC0064B521 /* CaptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978505932BE55DFC0064B521 /* CaptionView.swift */; };
+		978505972BEE25F40064B521 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978505962BEE25F40064B521 /* AppViewModel.swift */; };
 		97FEF13B2BDE6D4200727E54 /* GramCrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF13A2BDE6D4200727E54 /* GramCrackerApp.swift */; };
 		97FEF13D2BDE6D4200727E54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF13C2BDE6D4200727E54 /* ContentView.swift */; };
 		97FEF13F2BDE6D4200727E54 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF13E2BDE6D4200727E54 /* Item.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		978505932BE55DFC0064B521 /* CaptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionView.swift; sourceTree = "<group>"; };
+		978505962BEE25F40064B521 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		97FEF1372BDE6D4200727E54 /* GramCracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GramCracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97FEF13A2BDE6D4200727E54 /* GramCrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GramCrackerApp.swift; sourceTree = "<group>"; };
 		97FEF13C2BDE6D4200727E54 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		978505952BEE25CD0064B521 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				978505962BEE25F40064B521 /* AppViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		97FEF12E2BDE6D4200727E54 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +118,7 @@
 		97FEF1392BDE6D4200727E54 /* GramCracker */ = {
 			isa = PBXGroup;
 			children = (
+				978505952BEE25CD0064B521 /* Models */,
 				97FEF1692BDE924300727E54 /* Utils */,
 				97FEF1662BDE919A00727E54 /* Views */,
 				97FEF13A2BDE6D4200727E54 /* GramCrackerApp.swift */,
@@ -149,6 +162,7 @@
 				97FEF16A2BDE944600727E54 /* SignInView.swift */,
 				97FEF16C2BDE94CF00727E54 /* HomeScreen.swift */,
 				97FEF1702BDE96A800727E54 /* ImageUploadView.swift */,
+				978505932BE55DFC0064B521 /* CaptionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,11 +305,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				978505972BEE25F40064B521 /* AppViewModel.swift in Sources */,
 				97FEF13D2BDE6D4200727E54 /* ContentView.swift in Sources */,
 				97FEF13F2BDE6D4200727E54 /* Item.swift in Sources */,
 				97FEF13B2BDE6D4200727E54 /* GramCrackerApp.swift in Sources */,
 				97FEF16D2BDE94CF00727E54 /* HomeScreen.swift in Sources */,
 				97FEF1682BDE91AA00727E54 /* WelcomeView.swift in Sources */,
+				978505942BE55DFC0064B521 /* CaptionView.swift in Sources */,
 				97FEF1732BDE972000727E54 /* ImagePicker.swift in Sources */,
 				97FEF1712BDE96A800727E54 /* ImageUploadView.swift in Sources */,
 				97FEF16B2BDE944600727E54 /* SignInView.swift in Sources */,
@@ -462,6 +478,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GramCracker/Preview Content\"";
+				DEVELOPMENT_TEAM = LG4JX6L966;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -490,6 +507,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GramCracker/Preview Content\"";
+				DEVELOPMENT_TEAM = LG4JX6L966;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
