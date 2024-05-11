@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var coordinator = NavigationCoordinator()
+
     var body: some View {
-        Text("HelloWorld")
-            .padding()  // Adds some padding around the text for better UI appearance
-            .font(.title)  // Sets the font style to title for better visibility
+        NavigationView {
+            switch coordinator.currentPage {
+            case .welcome:
+                WelcomeView(coordinator: coordinator)
+            case .signIn:
+                SignInView(coordinator: coordinator)
+            case .homeScreen:
+                HomeScreen(coordinator: coordinator)
+            case .imageUpload:
+                ImageUploadView(coordinator: coordinator)
+            case .captionView(let caption):
+                CaptionView(caption: caption, coordinator: coordinator)
+            }
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}

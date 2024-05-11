@@ -12,6 +12,7 @@ struct ImageAnalysisResponse: Decodable {
     }
 }
 struct ImageUploadView: View {
+    @ObservedObject var coordinator: NavigationCoordinator
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplaying = false
     @State private var uploadMessage: String = ""
@@ -27,65 +28,64 @@ struct ImageUploadView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                if let selectedImage = selectedImage {
-                    Image(uiImage: selectedImage)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 300, maxHeight: 300)
+            ZStack(alignment: .top){
+                Color.bgGray
+                .edgesIgnoringSafeArea(.all)
+                VStack {
+                    if let selectedImage = selectedImage {
+                        Image(uiImage: selectedImage)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: 300, maxHeight: 300)
+                            .padding()
+                    } else {
+                        Text("Select an image to analyze")
+                            .padding()
+                    }
+                    
+                    Text(uploadMessage)
                         .padding()
-                } else {
-                    Text("Select an image to analyze")
-                        .padding()
-                }
-                
-                Text(uploadMessage)
-                    .padding()
-                    .foregroundColor(Color.green)
-                
-                Button("Select Image") {
-                    isImagePickerDisplaying = true
-                }
-                .padding()
-                .foregroundColor(.white)
-                .background(Color.blue)
-                .cornerRadius(8)
-                
-                if selectedImage != nil {
-                    Button("Upload Image") {
-                        uploadImage()
+                        .foregroundColor(Color.green)
+                    
+                    Button("Select Image") {
+                        isImagePickerDisplaying = true
                     }
                     .padding()
                     .foregroundColor(.white)
-                    .background(Color.green)
+                    .background(Color.blue)
                     .cornerRadius(8)
-                }
-                LoggerView(message: "LoggerView test.")
-                
-                
-                }
-                    .sheet(isPresented: $isImagePickerDisplaying, onDismiss: checkImageSelection) {
-                        ImagePicker(selectedImage: $selectedImage, sourceType: .photoLibrary)
-                    }
-                    .navigationDestination(isPresented: $navigateToCaptionView) {
-                        // Assuming CaptionView exists and takes a 'caption' string
-                        if let caption = caption {
-                            CaptionView(caption: caption)
-                        } else {
-                            Text("No caption available")
+                    
+                    if selectedImage != nil {
+                        Button("Upload Image") {
+                            uploadImage()
                         }
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.green)
+                        .cornerRadius(8)
                     }
+                    
+                }
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(leading: Button(action: {
+                    // Call goBack on the coordinator
+                    coordinator.goBack()
+                }) {
+                    HStack {
+                        Image(systemName: "arrow.left")
+                        Text("Back")
+                    }
+                })
+                .sheet(isPresented: $isImagePickerDisplaying, onDismiss: checkImageSelection) {
+                    ImagePicker(selectedImage: $selectedImage, sourceType: .photoLibrary)
+                }
+            }
+                Spacer()
+                BottomNavigationView(coordinator: coordinator)
         }
     }
 
-//            private func uploadImage() {
-//                // Simulate network response delay and process the response
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // Adjusted for example
-//                    self.caption = "Simulated caption from network response"
-//                    self.uploadMessage = "Upload successful!"
-//                    print("Caption set successfully: \(self.caption ?? "No Caption")")
-//                }
-//            }
 
             func checkImageSelection() {
                 if selectedImage != nil {
@@ -156,6 +156,8 @@ struct ImageUploadView: View {
                                                                 self.caption = analysisResponse.caption // Update caption to trigger navigation
                                                                 self.uploadMessage = "Upload successful!"
                                                                 print("Caption set successfully: \(self.caption ?? "No Caption")")
+                                                                // Navigate using the coordinator
+                                                                self.coordinator.navigate(to: .captionView(caption: analysisResponse.caption))
                                                             } catch {
                                                                 self.uploadMessage = "Failed to decode the response"
                                                                 print("Decoding error: \(error.localizedDescription)")
@@ -175,16 +177,6 @@ struct ImageUploadView: View {
 
 struct ImageUploadView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageUploadView()
-    }
-}
-struct LoggerView: View {
-    let message: String
-
-    var body: some View {
-        EmptyView()
-            .onAppear {
-                print(message)
-            }
+        ImageUploadView(coordinator: NavigationCoordinator())
     }
 }

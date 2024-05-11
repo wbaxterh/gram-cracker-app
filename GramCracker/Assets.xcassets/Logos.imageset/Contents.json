@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "bigBear 2.png",
+      "filename" : "gradientBear.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "bigBear 1.png",
+      "filename" : "gradientBear 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "bigBear.png",
+      "filename" : "gradientBear 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

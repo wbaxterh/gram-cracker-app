@@ -12,7 +12,10 @@ struct GramCrackerApp: App {
     @StateObject private var viewModel = AppViewModel()
     var body: some Scene {
         WindowGroup {
-            WelcomeView()
+            ContentView()
+                .background(Color.green)  // Set your desired color
+                .edgesIgnoringSafeArea(.all)  // Extend the background to all edges
+
         }
     }
 }
