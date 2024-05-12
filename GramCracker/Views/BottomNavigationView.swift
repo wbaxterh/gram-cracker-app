@@ -14,6 +14,7 @@ struct BottomNavigationView: View {
                 Image(systemName: "person.fill")
                     .resizable()
                     .scaledToFit()
+                    .foregroundColor(Color.mdGray)
                     .frame(width: 30, height: 30)
             }
             .frame(maxWidth: .infinity)
@@ -29,8 +30,14 @@ struct BottomNavigationView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 80, height: 80)
-                    .foregroundColor(.blue)  // Primary color
-                    .padding(.bottom, 50)  // Offset to the top
+                    .foregroundColor(Color.appBrand)  // Primary color
+                    
+                    .overlay(
+                            Circle()  // Creates a circular shape that will overlay the image
+                                .stroke(Color.white, lineWidth: 5)  // Defines the border color and width
+                                .frame(width: 85, height: 85)  // Sets the size of the circle slightly larger than the image to encompass it
+                        )
+                    .padding(.bottom, 32)  // Offset to the top
             }
             .frame(maxWidth: .infinity)
 
@@ -43,6 +50,7 @@ struct BottomNavigationView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30, height: 30)
+                    .foregroundColor(Color.mdGray)
             }
             .frame(maxWidth: .infinity)
         }

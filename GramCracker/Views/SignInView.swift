@@ -21,18 +21,20 @@ struct SignInView: View {
                     Text("Login to your account")
                         .font(.title)
                         .fontWeight(.bold)
+                        .foregroundColor(Color.appBlack)
                         .padding([.bottom], 20)
                         .multilineTextAlignment(.center)
                     TextField("Email", text: $username)
                         .padding()
-                        .background(Color.white)
+                        .background(Color.formWhite)
+                        .foregroundColor(Color.appBlack)
                         .cornerRadius(10)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                     
                     SecureField("Password", text: $password)
                         .padding()
-                        .background(Color.white)
+                        .background(Color.formWhite)
                         .cornerRadius(10)
                     
                     Button("Login") {
@@ -41,13 +43,13 @@ struct SignInView: View {
                     .padding(12)
                     .font(.system(size: 22))
                     .frame(width: 360)
-                    .foregroundColor(.white)
-                    .background(Color.blue)
+                    .foregroundColor(Color.white)
+                    .background(Color.appPrimary)
                     .cornerRadius(10)
                     
                     if authenticationFailed {
                         Text("Incorrect Username or Password!")
-                            .foregroundColor(.red)
+                            .foregroundColor(Color.appDanger)
                     }
                 }
                 .navigationBarBackButtonHidden(true)

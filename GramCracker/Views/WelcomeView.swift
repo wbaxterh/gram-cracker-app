@@ -18,6 +18,7 @@ struct WelcomeView: View {
                     Text("Welcome to GramCracker.io")
                         .font(.title)
                         .fontWeight(.bold)
+                        .foregroundColor(Color.appBlack)
                         .padding([.bottom], 20)
                         .multilineTextAlignment(.center)
                     
@@ -28,8 +29,8 @@ struct WelcomeView: View {
                     .padding(12)
                     .font(.system(size: 22))
                     .frame(width: 250)
-                    .foregroundColor(.white)
-                    .background(Color.blue)
+                    .foregroundColor(Color.white)
+                    .background(Color.appPrimary)
                     .cornerRadius(10)
                     .padding([.bottom], 5)
                     

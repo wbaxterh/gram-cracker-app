@@ -17,63 +17,64 @@ struct CaptionView: View {
     
     
     var body: some View {
-        ZStack(alignment: .top){
-            Color.bgGray
+        NavigationStack {
+            ZStack(alignment: .center){
+                Color.bgGray
                 .edgesIgnoringSafeArea(.all)
-                
-                VStack(alignment: .leading, spacing: 20) {
-                    Spacer()
-                    ForEach(captions, id: \.self) { captionPart in
-                        HStack {
-                            Text(captionPart.trimmingCharacters(in: .whitespacesAndNewlines))
-                                .padding()
-                                .font(.body)  // Adjust font size as needed
-                                .background(Color.gray.opacity(0.2)) // Light grey background
-                                .cornerRadius(8)
-                                .foregroundColor(.black)
-                                .frame(maxWidth: .infinity) // Expand to fill the available width
-                            
-                            
+                       VStack {
+                           Spacer() // Pushes content to the center vertically
+                           ScrollView {
+                               VStack(alignment: .center, spacing: 20) {
+                                   Spacer()
+                                   ForEach(captions, id: \.self) { captionPart in
+                                       HStack {
+                                           Text(captionPart.trimmingCharacters(in: .whitespacesAndNewlines))
+                                               .padding()
+                                               .font(.body)
+                                               .background(Color.gray.opacity(0.2))
+                                               .cornerRadius(8)
+                                               .foregroundColor(.black)
+                                               .frame(maxWidth: .infinity) // Ensures it expands to fill available width
+                                           
+                                           Button(action: {
+                                               UIPasteboard.general.string = captionPart
+                                               showToast = true
+                                               DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                                   showToast = false
+                                               }
+                                               print("Copied caption: \(captionPart)")
+                                           }) {
+                                               Image(systemName: "doc.on.doc").foregroundColor(.blue)
+                                           }
+                                       }.padding(.horizontal)
+                                   }
+                               }
+                           }
+                           .frame(maxWidth: .infinity, maxHeight: .infinity) 
+                       }
+                       .frame(maxWidth: .infinity, maxHeight: .infinity)
+                       .navigationTitle("Generated Captions")
+                       .navigationBarTitleDisplayMode(.inline)
+                       .navigationBarBackButtonHidden(true)
+                       .navigationBarItems(leading: Button(action: {
+                           coordinator.goBack()
+                       }) {
+                           HStack {
+                               Image(systemName: "arrow.left")
+                               Text("Back")
+                           }
+                       })
+                       .toast(isShowing: $showToast, text: Text("Copied!"))
+                        
+                        VStack{
                             Spacer()
-                            
-                            Button(action: {
-                                UIPasteboard.general.string = captionPart
-                                showToast = true
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                    showToast = false
-                                }
-                                print("Copied caption: \(captionPart)")
-                            }) {
-                                Image(systemName: "doc.on.doc")
-                                    .foregroundColor(.blue)
-                            }
+                            BottomNavigationView(coordinator: coordinator)
                         }
-                        .padding(.horizontal)
-                    } // end Hstack
-                    Spacer()
-                    BottomNavigationView(coordinator: coordinator)
-            } // end scrollview
-            
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .toast(isShowing: $showToast, text: Text("Copied!"))
-            
-            
+
+                   }
+               }
+           }
            
-        } //end zstack
-        .navigationTitle("Generated Captions")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button(action: {
-            // Log navigation action
-            print("Navigating back using coordinator")
-            coordinator.goBack()
-        }) {
-            HStack {
-                Image(systemName: "arrow.left")
-                Text("Back")
-            }
-        })
-    } // end view
     
     func splitString(usingRegex pattern: String) -> [String] {
         do {

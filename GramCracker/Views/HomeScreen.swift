@@ -11,7 +11,7 @@ struct HomeScreen: View {
                 Color.bgGray
                     .edgesIgnoringSafeArea(.all)
         
-                VStack(spacing: 20) {
+                VStack(spacing: 40) {
                     // Top Box Section
                     HStack {
                         VStack(alignment: .leading) {
@@ -19,12 +19,18 @@ struct HomeScreen: View {
                                 .resizable()
                                 .frame(width: 60, height: 60)
                                 .clipShape(Circle())
-                                .overlay(Circle().stroke(Color.black, lineWidth: 2))
+                                .overlay(Circle().stroke(Color.appLightBrand, lineWidth: 2))
                             
                                 .font(.system(size: 14))
                                 .foregroundColor(.black)
                         }
-                        Text("user@example.com") // Replace with dynamic email
+                        Text("user@example.com")
+                        .textContentType(.none)
+                        .disabled(true)
+                        .font(.system(size: 14))
+                        .foregroundColor(Color.appBlack)
+                       
+
                         
                         Spacer()
                         
@@ -51,23 +57,51 @@ struct HomeScreen: View {
                         // Logic to link Instagram account
                         print("Link Instagram Account tapped")
                     }
-                    .padding()
+                    .padding(.vertical, 30)
                     .foregroundColor(.white)
-                    .background(Color.blue)
-                    .cornerRadius(8)
-                    
-                    Button("Upload Image for Analysis") {
-                        isShowingImageUpload = true
-                        coordinator.navigate(to: .imageUpload)
-                        print("Upload Image for Analysis tapped")
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [Color.appSecondary, Color.appBrand]), startPoint: .leading, endPoint: .trailing)
+                    ) // Gradient from blue to purple
+                    .font(.system(size: 24, weight: .bold))
+
+                    Button("Complete Questionnaire") {
+                        // Logic to link Instagram account
+                        print("Complete Questionnaire tapped")
                     }
-                    .padding()
+                    .padding(.vertical, 30)
                     .foregroundColor(.white)
-                    .background(Color.green)
-                    .cornerRadius(8)
-                    Spacer()
-                    BottomNavigationView(coordinator: coordinator)
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [ Color.appLightBrand, Color.appDarkAccent]), startPoint: .leading, endPoint: .trailing)
+                    ) // Gradient from blue to purple
+                    .font(.system(size: 24, weight: .bold))
+
+                    Button("Configure Preferences") {
+                        // Logic to link Instagram account
+                        print("Configure Preferences tapped")
+                    }
+                    .padding(.vertical, 30)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [ Color.appPrimary, Color.appMdBrand]), startPoint: .leading, endPoint: .trailing)
+                    ) // Gradient from blue to purple
+                    .font(.system(size: 24, weight: .bold))
+
+                    
+//                    Button("Upload Image for Analysis") {
+//                        isShowingImageUpload = true
+//                        coordinator.navigate(to: .imageUpload)
+//                        print("Upload Image for Analysis tapped")
+//                    }
+//                    .padding()
+//                    .foregroundColor(.white)
+//                    .background(Color.green)
+//                    .cornerRadius(8)
+//                    
                 }
+                
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: Button(action: {
                     coordinator.goBack()
@@ -79,8 +113,11 @@ struct HomeScreen: View {
                 })
                 .navigationTitle("Home Screen")
                 .navigationBarTitleDisplayMode(.inline)
+                VStack{
+                    Spacer()
+                    BottomNavigationView(coordinator: coordinator)
+                }
             }
-
         }
     }
 }

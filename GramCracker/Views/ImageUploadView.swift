@@ -23,15 +23,17 @@ struct ImageUploadView: View {
     @State private var navigateToCaptionView = false
     @State private var selectedCaption: String?
     @State private var showCaptionView = false
+    @State private var isLoading = false  // Track loading state
+
 
 
     
     var body: some View {
         NavigationStack {
-            ZStack(alignment: .top){
+            ZStack(alignment: .center){
                 Color.bgGray
                 .edgesIgnoringSafeArea(.all)
-                VStack {
+                VStack (spacing: 20) {
                     if let selectedImage = selectedImage {
                         Image(uiImage: selectedImage)
                             .resizable()
@@ -39,32 +41,49 @@ struct ImageUploadView: View {
                             .frame(maxWidth: 300, maxHeight: 300)
                             .padding()
                     } else {
-                        Text("Select an image to analyze")
-                            .padding()
-                    }
-                    
-                    Text(uploadMessage)
-                        .padding()
-                        .foregroundColor(Color.green)
-                    
-                    Button("Select Image") {
-                        isImagePickerDisplaying = true
-                    }
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.blue)
-                    .cornerRadius(8)
-                    
-                    if selectedImage != nil {
-                        Button("Upload Image") {
-                            uploadImage()
+//                        Text("Caption Generator")
+//                            .padding()
+                        Button("Select Image") {
+                            isImagePickerDisplaying = true
                         }
                         .padding()
-                        .foregroundColor(.white)
-                        .background(Color.green)
+                        .font(.system(size: 24))
+                        .frame(width: 300, height: 300) // Adjust the size as needed
+                        .foregroundColor(.blue) // Text color
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8) // Apply a corner radius as needed
+                                .stroke(style: StrokeStyle(lineWidth: 2, dash: [10])) // This creates the dotted line effect
+                                .foregroundColor(.blue)
+                        )
                         .cornerRadius(8)
                     }
                     
+                    
+//                    Text(uploadMessage)
+//                        .foregroundColor(Color.green)
+                    
+                    Button(action: {
+                        if selectedImage != nil {
+                            uploadImage()
+                        }
+                    }) {
+                        HStack {
+                            Image(systemName: "gear") // Use the gear icon from SF Symbols
+                                .foregroundColor(.white) // Set the color of the icon
+                            Text("Generate Captions")
+                        }
+                    }
+                        .padding()
+                        .frame(maxWidth: 300)
+                        .font(.system(size: 24))
+                        .foregroundColor(.white)
+                        .background(Color.appSecondary)
+                        .cornerRadius(8)
+                    if isLoading {
+                                        ProgressView() // Or replace with your custom GIF loader view
+                                            .scaleEffect(1.5, anchor: .center)
+                                            .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                                    }
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(true)
@@ -80,9 +99,12 @@ struct ImageUploadView: View {
                 .sheet(isPresented: $isImagePickerDisplaying, onDismiss: checkImageSelection) {
                     ImagePicker(selectedImage: $selectedImage, sourceType: .photoLibrary)
                 }
+                VStack{
+                    Spacer()
+                    BottomNavigationView(coordinator: coordinator)
+                }
             }
-                Spacer()
-                BottomNavigationView(coordinator: coordinator)
+           
         }
     }
 
@@ -95,6 +117,7 @@ struct ImageUploadView: View {
 
     
     private func uploadImage() {
+        isLoading = true  // Start loading
         guard let selectedImage = selectedImage,
               let imageData = selectedImage.jpegData(compressionQuality: 0.9) else {
             uploadMessage = "Image is not available or cannot be converted to JPEG."
@@ -144,6 +167,7 @@ struct ImageUploadView: View {
         // Create the upload task
         let task = URLSession.shared.uploadTask(with: request, from: body) { data, response, error in
             DispatchQueue.main.async {
+                self.isLoading = false  // Stop loading
                 if let error = error {
                                     self.uploadMessage = "Upload failed: \(error.localizedDescription)"
                                 } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
