@@ -4,6 +4,7 @@ struct HomeScreen: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var coordinator: NavigationCoordinator
     @State private var isShowingImageUpload = false
+    @State private var userEmail: String = UserManager.shared.userEmail ?? "user@example.com"
 
     var body: some View {
         NavigationStack {
@@ -24,13 +25,11 @@ struct HomeScreen: View {
                                 .font(.system(size: 14))
                                 .foregroundColor(.black)
                         }
-                        Text("user@example.com")
+                        Text(userEmail)
                         .textContentType(.none)
                         .disabled(true)
                         .font(.system(size: 14))
                         .foregroundColor(Color.appBlack)
-                       
-
                         
                         Spacer()
                         
@@ -104,11 +103,12 @@ struct HomeScreen: View {
                 
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: Button(action: {
+                    UserManager.shared.logOut()
                     coordinator.goBack()
                 }) {
                     HStack {
                         Image(systemName: "arrow.left")
-                        Text("Back")
+                        Text("Log Out")
                     }
                 })
                 .navigationTitle("Home Screen")

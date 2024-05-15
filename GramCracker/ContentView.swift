@@ -17,6 +17,8 @@ struct ContentView: View {
                 WelcomeView(coordinator: coordinator)
             case .signIn:
                 SignInView(coordinator: coordinator)
+            case .register:
+                RegisterView(coordinator: coordinator)
             case .homeScreen:
                 HomeScreen(coordinator: coordinator)
             case .imageUpload:

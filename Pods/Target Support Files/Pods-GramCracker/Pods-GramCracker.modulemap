@@ -1,0 +1,6 @@
+framework module Pods_GramCracker {
+  umbrella header "Pods-GramCracker-umbrella.h"
+
+  export *
+  module * { export * }
+}

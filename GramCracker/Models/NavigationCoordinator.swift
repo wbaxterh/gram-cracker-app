@@ -22,6 +22,7 @@ class NavigationCoordinator: ObservableObject {
         case signIn
         case homeScreen
         case imageUpload
+        case register
         case captionView(caption: String)
     }
 
@@ -29,6 +30,7 @@ class NavigationCoordinator: ObservableObject {
     private var pageOrder: [Page] = [
         .welcome,
         .signIn,
+        .register,
         .homeScreen,
         .imageUpload,
         // CaptionView dynamically navigated to.

@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36B8C54DAEEC32304159F672 /* Pods_GramCracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16966963C11B1B4BF3B7281 /* Pods_GramCracker.framework */; };
+		7F5859A43E8DFEEA4764D14A /* Pods_GramCrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DB5E0E8D3ABC8FC36DD71F /* Pods_GramCrackerTests.framework */; };
+		976B53642BF433D100406EAF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976B53632BF433D100406EAF /* RegisterView.swift */; };
 		978505942BE55DFC0064B521 /* CaptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978505932BE55DFC0064B521 /* CaptionView.swift */; };
 		978505972BEE25F40064B521 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978505962BEE25F40064B521 /* AppViewModel.swift */; };
 		978505992BEE81830064B521 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978505982BEE81830064B521 /* NavigationCoordinator.swift */; };
 		9785059B2BEFB24A0064B521 /* BottomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9785059A2BEFB24A0064B521 /* BottomNavigationView.swift */; };
+		9785059F2BF3588E0064B521 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9785059E2BF3588E0064B521 /* UserManager.swift */; };
 		97FEF13B2BDE6D4200727E54 /* GramCrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF13A2BDE6D4200727E54 /* GramCrackerApp.swift */; };
 		97FEF13D2BDE6D4200727E54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF13C2BDE6D4200727E54 /* ContentView.swift */; };
 		97FEF13F2BDE6D4200727E54 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF13E2BDE6D4200727E54 /* Item.swift */; };
@@ -24,6 +28,7 @@
 		97FEF16D2BDE94CF00727E54 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF16C2BDE94CF00727E54 /* HomeScreen.swift */; };
 		97FEF1712BDE96A800727E54 /* ImageUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF1702BDE96A800727E54 /* ImageUploadView.swift */; };
 		97FEF1732BDE972000727E54 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FEF1722BDE972000727E54 /* ImagePicker.swift */; };
+		98F32AEF7C35DB3C4B232FDA /* Pods_GramCracker_GramCrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADD228F410729A843E7C18C /* Pods_GramCracker_GramCrackerUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,10 +49,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0094AFDA56EE7273505B7C9D /* Pods-GramCracker-GramCrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GramCracker-GramCrackerUITests.release.xcconfig"; path = "Target Support Files/Pods-GramCracker-GramCrackerUITests/Pods-GramCracker-GramCrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4E63B6A04F93787C1726856B /* Pods-GramCracker-GramCrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GramCracker-GramCrackerUITests.debug.xcconfig"; path = "Target Support Files/Pods-GramCracker-GramCrackerUITests/Pods-GramCracker-GramCrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		680D3621106BF62F3FA27E3D /* Pods-GramCrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GramCrackerTests.release.xcconfig"; path = "Target Support Files/Pods-GramCrackerTests/Pods-GramCrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		6ADD228F410729A843E7C18C /* Pods_GramCracker_GramCrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GramCracker_GramCrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72703D7D301CDCB1CEA8571F /* Pods-GramCrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GramCrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-GramCrackerTests/Pods-GramCrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		75DB5E0E8D3ABC8FC36DD71F /* Pods_GramCrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GramCrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91435CF14724D64C0B9BBD4D /* Pods-GramCracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GramCracker.release.xcconfig"; path = "Target Support Files/Pods-GramCracker/Pods-GramCracker.release.xcconfig"; sourceTree = "<group>"; };
+		976B53632BF433D100406EAF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		978505932BE55DFC0064B521 /* CaptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionView.swift; sourceTree = "<group>"; };
 		978505962BEE25F40064B521 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		978505982BEE81830064B521 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		9785059A2BEFB24A0064B521 /* BottomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationView.swift; sourceTree = "<group>"; };
+		9785059E2BF3588E0064B521 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		97FEF1372BDE6D4200727E54 /* GramCracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GramCracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97FEF13A2BDE6D4200727E54 /* GramCrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GramCrackerApp.swift; sourceTree = "<group>"; };
 		97FEF13C2BDE6D4200727E54 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +78,8 @@
 		97FEF16C2BDE94CF00727E54 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		97FEF1702BDE96A800727E54 /* ImageUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadView.swift; sourceTree = "<group>"; };
 		97FEF1722BDE972000727E54 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		C16966963C11B1B4BF3B7281 /* Pods_GramCracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GramCracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDD66A8E4AC6039DE54FDF45 /* Pods-GramCracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GramCracker.debug.xcconfig"; path = "Target Support Files/Pods-GramCracker/Pods-GramCracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36B8C54DAEEC32304159F672 /* Pods_GramCracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F5859A43E8DFEEA4764D14A /* Pods_GramCrackerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98F32AEF7C35DB3C4B232FDA /* Pods_GramCracker_GramCrackerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +119,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		9785059D2BF3587F0064B521 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9785059E2BF3588E0064B521 /* UserManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		97FEF12E2BDE6D4200727E54 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +134,8 @@
 				97FEF14C2BDE6D4400727E54 /* GramCrackerTests */,
 				97FEF1562BDE6D4400727E54 /* GramCrackerUITests */,
 				97FEF1382BDE6D4200727E54 /* Products */,
+				E06AD80A384175804E7D407E /* Pods */,
+				A061A242A3C35B991900ABFE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +152,7 @@
 		97FEF1392BDE6D4200727E54 /* GramCracker */ = {
 			isa = PBXGroup;
 			children = (
+				9785059D2BF3587F0064B521 /* Services */,
 				978505952BEE25CD0064B521 /* Models */,
 				97FEF1692BDE924300727E54 /* Utils */,
 				97FEF1662BDE919A00727E54 /* Views */,
@@ -169,6 +199,7 @@
 				97FEF1702BDE96A800727E54 /* ImageUploadView.swift */,
 				978505932BE55DFC0064B521 /* CaptionView.swift */,
 				9785059A2BEFB24A0064B521 /* BottomNavigationView.swift */,
+				976B53632BF433D100406EAF /* RegisterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,6 +212,29 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		A061A242A3C35B991900ABFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C16966963C11B1B4BF3B7281 /* Pods_GramCracker.framework */,
+				6ADD228F410729A843E7C18C /* Pods_GramCracker_GramCrackerUITests.framework */,
+				75DB5E0E8D3ABC8FC36DD71F /* Pods_GramCrackerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E06AD80A384175804E7D407E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DDD66A8E4AC6039DE54FDF45 /* Pods-GramCracker.debug.xcconfig */,
+				91435CF14724D64C0B9BBD4D /* Pods-GramCracker.release.xcconfig */,
+				4E63B6A04F93787C1726856B /* Pods-GramCracker-GramCrackerUITests.debug.xcconfig */,
+				0094AFDA56EE7273505B7C9D /* Pods-GramCracker-GramCrackerUITests.release.xcconfig */,
+				72703D7D301CDCB1CEA8571F /* Pods-GramCrackerTests.debug.xcconfig */,
+				680D3621106BF62F3FA27E3D /* Pods-GramCrackerTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -188,9 +242,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97FEF15D2BDE6D4400727E54 /* Build configuration list for PBXNativeTarget "GramCracker" */;
 			buildPhases = (
+				4110AEE479E391FD9AB105FF /* [CP] Check Pods Manifest.lock */,
 				97FEF1332BDE6D4200727E54 /* Sources */,
 				97FEF1342BDE6D4200727E54 /* Frameworks */,
 				97FEF1352BDE6D4200727E54 /* Resources */,
+				EC23F456AF8D3EEA3CE10EB6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,6 +261,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97FEF1602BDE6D4400727E54 /* Build configuration list for PBXNativeTarget "GramCrackerTests" */;
 			buildPhases = (
+				B946393D750E95C181E84D70 /* [CP] Check Pods Manifest.lock */,
 				97FEF1452BDE6D4400727E54 /* Sources */,
 				97FEF1462BDE6D4400727E54 /* Frameworks */,
 				97FEF1472BDE6D4400727E54 /* Resources */,
@@ -223,9 +280,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97FEF1632BDE6D4400727E54 /* Build configuration list for PBXNativeTarget "GramCrackerUITests" */;
 			buildPhases = (
+				3502213BB7B1D31DFA61A9F7 /* [CP] Check Pods Manifest.lock */,
 				97FEF14F2BDE6D4400727E54 /* Sources */,
 				97FEF1502BDE6D4400727E54 /* Frameworks */,
 				97FEF1512BDE6D4400727E54 /* Resources */,
+				63495C1FEF1B2512FC0B77A6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,6 +365,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3502213BB7B1D31DFA61A9F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GramCracker-GramCrackerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4110AEE479E391FD9AB105FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GramCracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63495C1FEF1B2512FC0B77A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GramCracker-GramCrackerUITests/Pods-GramCracker-GramCrackerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GramCracker-GramCrackerUITests/Pods-GramCracker-GramCrackerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GramCracker-GramCrackerUITests/Pods-GramCracker-GramCrackerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B946393D750E95C181E84D70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GramCrackerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC23F456AF8D3EEA3CE10EB6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GramCracker/Pods-GramCracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GramCracker/Pods-GramCracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GramCracker/Pods-GramCracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		97FEF1332BDE6D4200727E54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -314,6 +476,8 @@
 				978505972BEE25F40064B521 /* AppViewModel.swift in Sources */,
 				97FEF13D2BDE6D4200727E54 /* ContentView.swift in Sources */,
 				97FEF13F2BDE6D4200727E54 /* Item.swift in Sources */,
+				976B53642BF433D100406EAF /* RegisterView.swift in Sources */,
+				9785059F2BF3588E0064B521 /* UserManager.swift in Sources */,
 				97FEF13B2BDE6D4200727E54 /* GramCrackerApp.swift in Sources */,
 				978505992BEE81830064B521 /* NavigationCoordinator.swift in Sources */,
 				9785059B2BEFB24A0064B521 /* BottomNavigationView.swift in Sources */,
@@ -396,7 +560,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -459,7 +623,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -480,6 +644,7 @@
 		};
 		97FEF15E2BDE6D4400727E54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDD66A8E4AC6039DE54FDF45 /* Pods-GramCracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -489,6 +654,7 @@
 				DEVELOPMENT_TEAM = LG4JX6L966;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GramCracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -509,6 +675,7 @@
 		};
 		97FEF15F2BDE6D4400727E54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91435CF14724D64C0B9BBD4D /* Pods-GramCracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -518,6 +685,7 @@
 				DEVELOPMENT_TEAM = LG4JX6L966;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GramCracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -538,6 +706,7 @@
 		};
 		97FEF1612BDE6D4400727E54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72703D7D301CDCB1CEA8571F /* Pods-GramCrackerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -557,6 +726,7 @@
 		};
 		97FEF1622BDE6D4400727E54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 680D3621106BF62F3FA27E3D /* Pods-GramCrackerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -576,6 +746,7 @@
 		};
 		97FEF1642BDE6D4400727E54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E63B6A04F93787C1726856B /* Pods-GramCracker-GramCrackerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -593,6 +764,7 @@
 		};
 		97FEF1652BDE6D4400727E54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0094AFDA56EE7273505B7C9D /* Pods-GramCracker-GramCrackerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

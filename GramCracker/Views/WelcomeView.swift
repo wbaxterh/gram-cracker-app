@@ -36,6 +36,7 @@ struct WelcomeView: View {
                     
                     Button("Register") {
                         print("Register tapped")
+                        coordinator.navigate(to: .register)
                         // Handle register action
                     }
                     .padding(12)
