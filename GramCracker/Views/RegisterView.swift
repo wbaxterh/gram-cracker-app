@@ -62,7 +62,7 @@ struct RegisterView: View {
                 }
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: Button(action: {
-                    coordinator.goBack()
+                    coordinator.currentPage = .welcome
                 }) {
                     HStack {
                         Image(systemName: "arrow.left")

@@ -104,7 +104,7 @@ struct HomeScreen: View {
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: Button(action: {
                     UserManager.shared.logOut()
-                    coordinator.goBack()
+                    coordinator.currentPage = .welcome
                 }) {
                     HStack {
                         Image(systemName: "arrow.left")
